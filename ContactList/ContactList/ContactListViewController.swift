@@ -36,7 +36,9 @@ class ContactListViewController: UIViewController {
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         alert.addTextField(configurationHandler: nil)
-        alert.addTextField(configurationHandler: nil)
+        alert.addTextField { (textField) in
+            textField.keyboardType = .numberPad
+        }      //  alert.textFields?[1].delegate = self
         self.present(alert, animated: true, completion: nil)
     }
     
@@ -112,4 +114,10 @@ extension ContactListViewController: UITableViewDelegate, UITableViewDataSource{
         deleteRowAtIndex(indexPath: indexPath)
     }
 }
-
+//
+//extension ContactListViewController: UITextFieldDelegate{
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//
+//        return false
+//    }
+//}
